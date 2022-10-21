@@ -1,0 +1,29 @@
+<script type="module" defer>
+  import { io } from "https://cdn.socket.io/4.3.2/socket.io.esm.min.js";
+  const socket = io("http://localhost:3000");
+
+  socket.on("connect", () => {
+    console.log("Connected to server");
+  });
+
+  socket.on('message', (message) => {
+    console.log(message);
+  });
+
+  socket.on("disconnect", () => {
+    console.log("Disconnected from server");
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('#send').onclick = () => {
+      const message = {
+        'message': 'hey',
+        'sender': 'user'
+      };
+      socket.emit('response', message);
+    };
+  });
+</script>
+
+<button id="send">Send</button>
+

@@ -1,0 +1,22 @@
+{
+  "name": "start",
+  "description": "Chatbot entrypoint",
+  "answer": [
+    {
+      "type": "choice",
+      "message": "Hello, I'm the chatbot of the company. How can I help you?",
+      "choices": [
+        {
+          "text": "I want to know more about you",
+          "next": "ask_vehicule_year"
+        },
+        {
+          "text": "I want to know more about your services",
+          "next": "ask_last_motorbike_maintenance"
+        }
+      ]
+    }
+  ]
+}
+
+
